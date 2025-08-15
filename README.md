@@ -5,13 +5,18 @@
 rm -rf MESC_bot_upload
 mkdir MESC_bot_upload
 
+rm -rf MESC_Firmware
 git clone https://github.com/davidmolony/MESC_Firmware
+rm -rf MESC_Firmware
 
 cp -rf MESC_Firmware/MESC_Common MESC_bot_upload/.
 cp -rf MESC_Firmware/MESC_F405RG MESC_bot_upload/.
 cp -rf MESC_Firmware/MESC_RTOS MESC_bot_upload/.
 
+rm -rf MESC_BOT
 git clone https://github.com/owhite/MESC_BOT.git
+rm -rf MESC_BOT
+
 cp -rf MESC_BOT/* MESC_bot_upload/.
 
 zip -r MESC_BOT_UPLOAD.zip MESC_bot_upload
