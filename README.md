@@ -13,6 +13,8 @@ cp -rf MESC_Firmware/MESC_Common MESC_bot_upload/.
 cp -rf MESC_Firmware/MESC_F405RG MESC_bot_upload/.
 cp -rf MESC_Firmware/MESC_RTOS MESC_bot_upload/.
 
+rm -rf MESC_Firmware
+
 rm -rf MESC_BOT
 git clone https://github.com/owhite/MESC_BOT.git
 rm -rf MESC_BOT

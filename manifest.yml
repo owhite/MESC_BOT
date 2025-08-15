@@ -11,7 +11,7 @@ bot_directives:
 extra_docs:
   - path: feature_requests.md
     description: A list of planned and proposed enhancements to MESC.
-* path: MESC_brain_board.md
+  - path: MESC_brain_board.md
     description: Markdown document summarizing the architecture, purpose, and design considerations for the Teensy-based brain board and how it interacts with MESC motor controllers.
 
 required_paths:
