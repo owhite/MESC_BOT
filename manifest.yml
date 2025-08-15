@@ -2,24 +2,24 @@
 
 # Entry points for loading in order
 entry_points:
-  - manifest.yml
-  - bot_instructions.md
-  - terminal_variables.yml
-  - intro_operations.md
-  - knowledge_base.md
-  - MESC_Common
-  - MESC_RTOS
-  - MESC_F405RG
-  - recipes.md
-  - MESC_brain_board.md
+  - MESC_bot_upload/manifest.yml
+  - MESC_bot_upload/bot_instructions.md
+  - MESC_bot_upload/terminal_variables.yml
+  - MESC_bot_upload/intro_operations.md
+  - MESC_bot_upload/knowledge_base.md
+  - MESC_bot_upload/MESC_Common
+  - MESC_bot_upload/MESC_RTOS
+  - MESC_bot_upload/MESC_F405RG
+  - MESC_bot_upload/recipes.md
+  - MESC_bot_upload/MESC_brain_board.md
 
 # Core documentation files
 docs:
   files:
-    - bot_instructions.md
-    - intro_operations.md
-    - knowledge_base.md
-    - recipes.md
+    - MESC_bot_upload/bot_instructions.md
+    - MESC_bot_upload/intro_operations.md
+    - MESC_bot_upload/knowledge_base.md
+    - MESC_bot_upload/recipes.md
   descriptions:
     bot_instructions.md: Governing rules for documentation bot behavior.
     intro_operations.md: Introduction, operational guidelines and math. 
@@ -29,8 +29,8 @@ docs:
 # Extra documentation
 extra_docs:
   files:
-    - feature_requests.md
-    - MESC_brain_board.md
+    - MESC_bot_upload/feature_requests.md
+    - MESC_bot_upload/MESC_brain_board.md
   descriptions:
     feature_requests.md: A list of planned and proposed enhancements to MESC.
     MESC_brain_board.md: Markdown document summarizing the architecture, purpose, and design considerations for the Teensy-based brain board and how it interacts with MESC motor controllers.
@@ -38,20 +38,20 @@ extra_docs:
 # Configuration and CLI support
 config:
   files:
-    - terminal_variables.yml
+    - MESC_bot_upload/terminal_variables.yml
   descriptions:
     terminal_variables.yml: CLI variable definitions, syntax, units, and examples.
 
 # Code directories
 code:
   important_code_paths:
-    - MESC_Common
-    - MESC_RTOS
-    - MESC_F405RG
+    - MESC_bot_upload/MESC_Common
+    - MESC_bot_upload/MESC_RTOS
+    - MESC_bot_upload/MESC_F405RG
   code_paths:
-    - MESC_Common
-    - MESC_RTOS
-    - MESC_F405RG
+    - MESC_bot_upload/MESC_Common
+    - MESC_bot_upload/MESC_RTOS
+    - MESC_bot_upload/MESC_F405RG
   descriptions:
     MESC_Common: Shared source files for core FOC algorithms and utilities.
     MESC_F405RG: Board-specific configuration and STM32F405RG MCU setup.

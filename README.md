@@ -16,16 +16,13 @@ rm -rf MESC_Firmware
 
 rm -rf MESC_BOT
 git clone https://github.com/owhite/MESC_BOT.git
-rm -rf MESC_BOT
 
 cp -rf MESC_BOT/* MESC_bot_upload/.
+rm -rf MESC_BOT
 
-rm -rf MESC_BOT_UPLOAD.zip
-cd MESC_bot_upload
 rm -rf archive.zip
-zip -r archive.zip * 'MESC_bot_upload/.[!.]*'
-mv archive.zip ../.
-cd ..
+zip -r archive.zip MESC_bot_upload
+
 ```
 
 ## Kickoff prompt
