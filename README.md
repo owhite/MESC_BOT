@@ -21,7 +21,10 @@ rm -rf MESC_BOT
 cp -rf MESC_BOT/* MESC_bot_upload/.
 
 rm -rf MESC_BOT_UPLOAD.zip
-zip -r MESC_BOT_UPLOAD.zip MESC_bot_upload
+cd MESC_bot_upload
+rm -rf archive.zip
+zip -r archive.zip * 'MESC_bot_upload/.[!.]*'
+mv archive.zip ../.
 
 ```
 

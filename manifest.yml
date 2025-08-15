@@ -1,68 +1,62 @@
-root: .
+# manifest.yml — MESC firmware documentation + code index
 
+# Entry points for loading in order
 entry_points:
+  - manifest.yml
   - bot_instructions.md
   - terminal_variables.yml
   - intro_operations.md
-
-bot_directives:
-  - Use bot_instructions.md as the first souorce for all of your directives
-
-extra_docs:
-  - path: feature_requests.md
-    description: A list of planned and proposed enhancements to MESC.
-  - path: MESC_brain_board.md
-    description: Markdown document summarizing the architecture, purpose, and design considerations for the Teensy-based brain board and how it interacts with MESC motor controllers.
-
-required_paths:
-  - MESC_Common
-  - MESC_F405RG
-  - MESC_RTOS
-  - MESC_F405RG/MESC_F405RG.ioc
-  
-code_paths:
-  - MESC_Common
-  - MESC_F405RG
-  - MESC_RTOS
-
-important_code_paths:
-  - MESC_Common/Src
-  - MESC_Common/Inc
-  - MESC_F405RG/Core/Src
-  - MESC_F405RG/Core/Inc
-  - MESC_RTOS
-
-debug_docs:
-  - recipes.md
   - knowledge_base.md
+  - MESC_Common
+  - MESC_RTOS
+  - MESC_F405RG
+  - recipes.md
+  - MESC_brain_board.md
 
-device:
-  mcu: STM32F405
-  hclk_hz: 168000000         # recommended so SWV/ITM config is consistent
-  stlink: ST-LINK/V2
+# Core documentation files
+docs:
+  files:
+    - bot_instructions.md
+    - intro_operations.md
+    - knowledge_base.md
+    - recipes.md
+  descriptions:
+    bot_instructions.md: Governing rules for documentation bot behavior.
+    intro_operations.md: Introductory operational guidelines and setup steps.
+    knowledge_base.md: General reference and background information.
+    recipes.md: Task and build sequence definitions.
 
-cube_mx:
-  ioc: MESC_F405RG/MESC_F405RG.ioc
+# Extra documentation
+extra_docs:
+  files:
+    - feature_requests.md
+    - MESC_brain_board.md
+  descriptions:
+    feature_requests.md: A list of planned and proposed enhancements to MESC.
+    MESC_brain_board.md: Markdown document summarizing the architecture, purpose, and design considerations for the Teensy-based brain board and how it interacts with MESC motor controllers.
 
-debug_launch:
-  ide: STM32CubeIDE
-  kind: stm32cubeide_launch
-  path: 'MESC_F405RG/MESC_F405RG Debug STLink.launch'
-  default: true
-  build_configuration: Debug
-#  stlink:
-#    connect_under_reset: true
-#    reset_strategy: hardware
-#  swv:
-#    hclk_hz: 168000000
-#    swo_hz: 2000000
-#    itm_ports: [0]
+# Configuration and CLI support
+config:
+  files:
+    - terminal_variables.yml
+  descriptions:
+    terminal_variables.yml: CLI variable definitions, syntax, units, and examples.
 
+# Code directories
+code:
+  important_code_paths:
+    - MESC_Common
+    - MESC_RTOS
+    - MESC_F405RG
+  code_paths:
+    - MESC_Common
+    - MESC_RTOS
+    - MESC_F405RG
+  descriptions:
+    MESC_Common: Shared source files for core FOC algorithms and utilities.
+    MESC_F405RG: Board-specific configuration and STM32F405RG MCU setup.
+    MESC_RTOS: RTOS initialization and task management.
 
-# Optional ranking helpers:
-# boost_files:
-#   - MESC_Common/Src/foc.c
-#   - MESC_Common/Src/clarke.c
-#   - MESC_Common/Src/park.c
-#   - MESC_Common/Src/svpwm.c
-#   - MESC_Common/Src/cli.c
+# Metadata
+firmware_author: David Molony
+documentation_authors: Owen White and other contributors (see file history for details)
