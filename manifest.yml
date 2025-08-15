@@ -1,0 +1,68 @@
+root: .
+
+entry_points:
+  - bot_instructions.md
+  - terminal_variables.yml
+  - intro_operations.md
+
+bot_directives:
+  - Use bot_instructions.md as the first souorce for all of your directives
+
+extra_docs:
+  - path: feature_requests.md
+    description: A list of planned and proposed enhancements to MESC.
+* path: MESC_brain_board.md
+    description: Markdown document summarizing the architecture, purpose, and design considerations for the Teensy-based brain board and how it interacts with MESC motor controllers.
+
+required_paths:
+  - MESC_Common
+  - MESC_F405RG
+  - MESC_RTOS
+  - MESC_F405RG/MESC_F405RG.ioc
+  
+code_paths:
+  - MESC_Common
+  - MESC_F405RG
+  - MESC_RTOS
+
+important_code_paths:
+  - MESC_Common/Src
+  - MESC_Common/Inc
+  - MESC_F405RG/Core/Src
+  - MESC_F405RG/Core/Inc
+  - MESC_RTOS
+
+debug_docs:
+  - recipes.md
+  - knowledge_base.md
+
+device:
+  mcu: STM32F405
+  hclk_hz: 168000000         # recommended so SWV/ITM config is consistent
+  stlink: ST-LINK/V2
+
+cube_mx:
+  ioc: MESC_F405RG/MESC_F405RG.ioc
+
+debug_launch:
+  ide: STM32CubeIDE
+  kind: stm32cubeide_launch
+  path: 'MESC_F405RG/MESC_F405RG Debug STLink.launch'
+  default: true
+  build_configuration: Debug
+#  stlink:
+#    connect_under_reset: true
+#    reset_strategy: hardware
+#  swv:
+#    hclk_hz: 168000000
+#    swo_hz: 2000000
+#    itm_ports: [0]
+
+
+# Optional ranking helpers:
+# boost_files:
+#   - MESC_Common/Src/foc.c
+#   - MESC_Common/Src/clarke.c
+#   - MESC_Common/Src/park.c
+#   - MESC_Common/Src/svpwm.c
+#   - MESC_Common/Src/cli.c
