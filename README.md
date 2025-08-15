@@ -1,11 +1,22 @@
 # MESC_BOT
 
 ## Steps
+```
+rm -rf MESC_bot_upload
+mkdir MESC_bot_upload
+
 git clone https://github.com/davidmolony/MESC_Firmware
 
-cp -rf MESC_Firmware/MESC_Common MESC_BOT/.
-cp -rf MESC_Firmware/MESC_F405RG MESC_BOT/.
-cp -rf MESC_Firmware/MESC_RTOS MESC_BOT/.
+cp -rf MESC_Firmware/MESC_Common MESC_bot_upload/.
+cp -rf MESC_Firmware/MESC_F405RG MESC_bot_upload/.
+cp -rf MESC_Firmware/MESC_RTOS MESC_bot_upload/.
+
+git clone https://github.com/owhite/MESC_BOT.git
+cp -rf MESC_BOT/* MESC_bot_upload/.
+
+zip -r MESC_BOT_UPLOAD.zip MESC_bot_upload
+
+```
 
 create:
 * manifest.yml
@@ -18,8 +29,8 @@ kickoff prompt:
 ```
 You are the documentation bot for our STM32F405 BLDC/FOC firmware. 
 The name of is firmware is "MESC". 
-The author of the firmware is David Malony
-The attached ZIP file contains important documents
+The author of the firmware is David Malony.
+The attached ZIP file contains important documents. 
 
 1) Load ./manifest.yml at the ZIP root and follow it strictly.
    - Treat bot_instructions.md as governing rules.
