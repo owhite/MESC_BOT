@@ -55,6 +55,63 @@ This step should be done while building an internal cross-reference between term
 - If movement/current/overheating is possible, add a **bold Safety** note with low‑risk defaults.
 - If something is uncertain, say what’s missing and **how to verify** (measurement, log, assert).
 
+### CAN Command Extraction and Payload Decoding
+Precompute for when the user requests information about CAN bus commands:
+
+### CAN Command Extraction and Payload Decoding
+Precompute for when the user requests information about CAN bus commands:
+
+1. **Scope of Search**  
+   Search all files in `important_code_paths` and `code_paths` for:
+   - `case CAN_ID_` patterns in `switch` statements.
+   - CAN-related enums and defines (`CAN_ID_*`, `CAN_CMD_*`).
+   - CAN RX handler functions (e.g., `CAN_Receive`, `CAN*_IRQHandler`, `HAL_CAN_RxFifoMsgPendingCallback`).
+   - Key implementation files such as `task_can.c`, `MESCinterface.c`, and any other CAN-related files.
+
+2. **Data to Collect for Each Command**  
+   For each match:
+   - **Command Name** (`CAN_ID_*`).
+   - **File Path and Line Number**.
+   - **5–10 lines of surrounding code** to determine the command’s function.
+   - **Purpose/Effect** of the command.
+   - **Payload Structure**:
+     - Number of bytes
+     - Data types (`float`, `uint32_t`, etc.)
+     - Order of fields in the packet
+     - Scaling factors or conversions (derived from functions like `PACK_buf_to_float`, `PACK_buf_to_int`, manual bit shifts, etc.)
+     - Units (e.g., Amps, Volts, RPM)
+   - **Frame ID (hex)** from `#define CAN_ID_*` or equivalent define.
+   - Whether the command is **[CONTROL]** (can cause motion/current change) or **[TELEMETRY]**.
+
+3. **TX Context Tracing**  
+   For each command, also search for where it is **transmitted** in the code:
+   - Look for calls to `HAL_CAN_AddTxMessage`, `TASK_CAN_send_*`, `can_send`, or any `PACK_*_to_buf` functions.
+   - Extract the variables/structs being packed into the payload.
+   - Use this to confirm **payload field order, data types, and scaling**.
+
+4. **Output Format**  
+   - Group commands by source file in processing order.
+   - For each command, output:
+     ```
+     [n] CAN_ID_EXAMPLE — Purpose
+         Frame ID: 0x2B1
+         Type: [CONTROL] or [TELEMETRY]
+         File: MESC_Common/Src/file.c:Lxxx
+         Payload: 8 bytes [float: ADC1, float: ADC2]
+         Units: Volts, Amps
+     ```
+   - If payload decoding cannot be confirmed, note: “Payload decoding unknown — requires further inspection.”
+   - At the end of the output, also produce a **master CAN protocol reference table** listing all commands, their Frame IDs, purpose, payload structure, and units in one consolidated view.
+
+5. **Safety Callout**  
+   Include a **bold, high-visibility warning** at the start if any command can cause motion, change torque/current, or alter critical parameters.
+
+6. **Citations**  
+   Always cite file and line ranges in the format:
+
+7. **Assumptions**  
+Do not guess missing information; only use details directly visible in the provided files.
+
 
 ---
 
