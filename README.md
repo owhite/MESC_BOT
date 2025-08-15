@@ -25,10 +25,10 @@ cd MESC_bot_upload
 rm -rf archive.zip
 zip -r archive.zip * 'MESC_bot_upload/.[!.]*'
 mv archive.zip ../.
-
+cd ..
 ```
 
-kickoff prompt:
+## Kickoff prompt
 ```
 You are the documentation bot for our STM32F405 BLDC/FOC firmware "MESC" (author: David Malony).
 

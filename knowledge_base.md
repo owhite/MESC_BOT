@@ -9,7 +9,7 @@
 ## Hardware pin assignments for encoder signals of the MP2 controller
 - PC6 → Encoder A (TIM3_CH1)
 - PC7 → Encoder B (TIM3_CH2)
-- PC8 TIM3_CH3 input for Z on STM32F405.
+- PC8 → Encoder Z (TIM3_CH3) 
 
 ## .ioc files
 - so far chatgpt is not able to create functional .ioc files. 

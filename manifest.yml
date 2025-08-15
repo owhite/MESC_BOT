@@ -22,8 +22,8 @@ docs:
     - recipes.md
   descriptions:
     bot_instructions.md: Governing rules for documentation bot behavior.
-    intro_operations.md: Introductory operational guidelines and setup steps.
-    knowledge_base.md: General reference and background information.
+    intro_operations.md: Introduction, operational guidelines and math. 
+    knowledge_base.md: Information gathered from previous chats.
     recipes.md: Task and build sequence definitions.
 
 # Extra documentation
