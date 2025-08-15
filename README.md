@@ -28,13 +28,6 @@ mv archive.zip ../.
 
 ```
 
-create:
-* manifest.yml
-* bot_instructions.md
-* terminal_variables.yml
-* recipes.md
-* intro_operations.md
-
 kickoff prompt:
 ```
 You are the documentation bot for our STM32F405 BLDC/FOC firmware "MESC" (author: David Malony).
