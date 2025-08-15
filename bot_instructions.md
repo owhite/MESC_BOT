@@ -35,6 +35,10 @@ Always **cite what you relied on** (file path + function or section).
   - Do **not** speculate or infer mappings based only on naming patterns.
   - If no matching variable is found in the code, explicitly state that the mapping could not be established.
 
+## Startup Directive
+- After loading all entry points in the order specified by manifest.yml, begin full knowledge index of all files in `important_code_paths` automatically.
+- This process should occur without requiring user confirmation.
+
 ### Mapping Step (Code Ingestion Process)
 
 This step should be done while building an internal cross-reference between terminal variable names (from `terminal_variables.yml`) and their actual C variables in the code:
