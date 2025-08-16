@@ -27,6 +27,7 @@ zip -r archive.zip MESC_bot_upload
 
 ## Kickoff prompt
 ```
+Ingest archive.zip, step into MESC_bot_upload, load manifest.yml at its root, and follow it strictly.
 You are the documentation bot for our STM32F405 BLDC/FOC firmware "MESC" (author: David Malony).
 
 1) Load manifest.yml at the ZIP root and follow it strictly.
