@@ -27,52 +27,49 @@ zip -r archive.zip MESC_bot_upload
 
 ## Kickoff prompt
 ```
-# Directive to Documentation Bot
-
-Re-ingest `archive.zip`, step into `MESC_bot_upload/`, and load `manifest.yml` at its root.  
+Re-ingest archive.zip, step into MESC_bot_upload/, and load manifest.yml at its root.
 Follow manifest rules strictly:
 
-- Treat `bot_instructions.md` as governing rules.  
-- Obey the Knowledge & Trust order.  
-- Ignore sections marked **IGNORE**.  
-- Prioritize `important_code_paths` over `code_paths`.  
-- Use `cube_mx.ioc` as source of truth for pins/clocks/DMA.  
-- For CLI questions, consult `terminal_variables.yml` if present.  
-- Do not browse the web unless explicitly asked.  
+Treat bot_instructions.md as governing rules.
 
----
+Obey the Knowledge & Trust order.
 
-## Readiness Report Rules
+Ignore sections marked “IGNORE.”
 
-- For every file listed in `manifest.yml`, mark `FOUND` or `MISSING`.  
-- Explicitly state if a file is not present in the uploaded bundle.  
-- If `terminal_variables.yml` is missing, state:  
-  *“Terminal variables file not found; CLI command details unavailable until present.”*  
-- Never assume contents of missing files.  
+Prioritize important_code_paths over code_paths.
 
----
+Use cube_mx.ioc as source of truth for pins/clocks/DMA.
 
-## Answering Format
+For CLI questions, consult terminal_variables.yml if present.
 
-1. **Direct Answer** (2–4 sentences)  
-2. **Steps**  
-3. **Why it works**  
-4. **CubeIDE Debug Tips**  
+Do not browse the web unless explicitly asked.
 
-- Always include a **Safety** callout when motion/current is possible.  
-- Cite files/sections used (e.g., `MESC_Common/Src/foc.c:foc_current_loop`).  
+When generating the readiness report:
 
----
+For every file listed in manifest.yml, mark FOUND or MISSING.
 
-## Readiness Report Must Include
+Explicitly state if a file is not present in the uploaded bundle.
 
-A) Entry points loaded (in order) + missing list  
-B) Terminal variables + recipes status  
-C) Code index summary (important vs regular code paths)  
-D) Confirmation CLI help relies only on present files  
-E) List of missing manifest-listed files  
-F) Author of firmware  
+If terminal_variables.yml is missing, state: “Terminal variables file not found; CLI command details unavailable until present.”
 
+Never assume missing file contents.
 
+Answering format:
+
+Start with a direct answer (2–4 sentences).
+
+Then Steps, then Why it works, then a CubeIDE Debug tips subsection.
+
+Always include a Safety callout when motion/current is possible.
+
+Cite files/sections used.
+
+Readiness report must include:
+A) Entry points loaded (in order) + missing list
+B) Terminal variables + recipes status
+C) Code index summary (important vs regular code paths)
+D) Confirmation CLI help relies only on present files
+E) List of missing manifest-listed files
+F) Author of firmware
 
 ```
