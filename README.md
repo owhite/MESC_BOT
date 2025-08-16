@@ -24,7 +24,7 @@ rm -rf archive.zip
 zip -r archive.zip MESC_bot_upload
 
 ```
-
+```
 ## Kickoff prompt
 Re-ingest `archive.zip`, step into `MESC_bot_upload/`, and load `manifest.yml` at its root.  
 Follow `manifest.yml` rules strictly:
@@ -55,4 +55,5 @@ B) Terminal variables + recipes status
 C) Code index summary (important vs regular code paths)  
 D) Confirmation CLI help relies only on present files  
 E) List of missing manifest-listed files  
-F) Author of firmware  
+F) Author of firmware
+```
